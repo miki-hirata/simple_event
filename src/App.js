@@ -14,31 +14,24 @@ function Form(props) {
   const optionTitle = Array.from(setTitle);//配列に戻す
 
   ////この関数が実行されたら、表示されるイベントが変わる////
-  function handleSubmit(event) {
-    event.preventDefault();//これがないと本当にリロードしちゃう
-    const { selectedEvent } = event.target.elements;
-    console.log(selectedEvent.value);//選択したイベントのタイトル取得確認できている
-    props.changeFilter(selectedEvent.value);
+  function handleSubmit(e) {
+    //event.preventDefault();//これがないと本当にリロードしちゃう
+    const selectedTitle = e.target.value;//selectされた要素のkey属性(keyだと取れなかった)
+    console.log(selectedTitle);//選択したイベントのタイトル取得確認
+    props.changeFilter(selectedTitle);
   }
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="select_box">
-        <select name="selectedEvent" defaultValue={events[0].title}>
-        <option  key="all" value="all">全ての公演</option>
-          {optionTitle.map((title) => {
 
-            return (
-              <option  key={title} value={title}>{title}</option>
-            );
-          })}
-        </select>
-      </div>
-      <div className="select_btn">
-        <button type="submit" className="button is-dark">
-           Reload
-        </button>
-      </div>
-    </form>
+  return (
+    <div className="select_box">
+      <select name="selectedEvent" defaultValue={events[0].title} onChange={handleSubmit}>
+        <option  key="all" value="all">全ての公演</option>
+        {optionTitle.map((title) => {
+          return (
+            <option  key={title} value={title}>{title}</option>
+          );
+        })}
+      </select>
+    </div>  
   );
 }
 
@@ -47,8 +40,10 @@ function Header(props){
   const {events, changeFilter} = props;
   return(
     <header>
+      <div className="main_width">
         <h1>簡易イベント表示</h1>
         <Form events={events} changeFilter={changeFilter}/>
+      </div>
     </header>
   );
 }
@@ -146,7 +141,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       <Header events = {events} changeFilter={changeFilter}/>
       <Main events = {filteredEvents} />
     </div>
