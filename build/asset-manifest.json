@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/simple_event/static/css/main.dc40fbd0.css",
+    "main.js": "/simple_event/static/js/main.d777bdfa.js",
+    "index.html": "/simple_event/index.html",
+    "main.dc40fbd0.css.map": "/simple_event/static/css/main.dc40fbd0.css.map",
+    "main.d777bdfa.js.map": "/simple_event/static/js/main.d777bdfa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc40fbd0.css",
+    "static/js/main.d777bdfa.js"
+  ]
+}

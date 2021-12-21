@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import "setting";
+@include reset;
+
+header {
+  background-color: $baseColor;
+  height: 100px;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    .select_box {
+      margin-right: 1em;
+      select {
+        background-color: #fff;
+        padding: 0.5em 1em;
+      }
+    }
+    .select_btn {
+      button {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 0.5em 1em;
+      }
+    }
+  }
+}
+
+.main_width {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media860 {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+.event_group {
+  background-color: $baseColor;
+  margin-top: 50px;
+  padding: 50px 30px;
+}
+
+.event_block {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  + .event_block {
+    margin-top: 30px;
+  }
+  > div {
+    margin-right: 1em;
+  }
+
+  .date {
+    span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  .time {
+    display: flex;
+    dl {
+      display: flex;
+      &:nth-child(n + 2) {
+        margin-left: 1em;
+      }
+      dt {
+        margin-right: 0.5em;
+      }
+    }
+  }
+  .title {
+    span {
+      font-weight: bold;
+    }
+  }
+}
